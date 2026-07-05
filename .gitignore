@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Node / build tooling (not used now, kept as a safety net)
+node_modules/
+
+# Logs
+*.log
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
