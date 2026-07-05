@@ -1,0 +1,65 @@
+# Manish Verma — Personal Portfolio
+
+A single-page, static personal website for Manish Verma (Senior Product Manager, R&D — AI Platforms). No build step, no dependencies — just an `index.html` plus an `assets/` folder.
+
+## 📁 Structure
+
+```
+manish-portfolio/
+├── index.html      # the whole site (HTML + CSS + a little JS, self-contained)
+├── render.yaml     # optional: Render Blueprint config for one-click deploy
+├── .gitignore
+└── assets/         # photo, resume, degree, and PDF work samples
+    ├── profile.jpg                                                  # headshot (falls back to an "MV" monogram if missing)
+    ├── Manish_Verma_Resume.pdf
+    ├── LPU_Degree_B_Tech_Biotechnology.jpg                          # degree scan (linked from Education)
+    ├── Harvard_Certificate.pdf                                      # HMX Fundamentals (Genetics)
+    ├── Large_Language_Models_Rewriting_Pharma_s_Playbook.pdf        # work sample: LLMs in pharma (report)
+    ├── Is_Drug_Discovery_Undergoing_a_Revolution_with_Large_Language_Model.pdf  # work sample: LLMs in drug discovery
+    ├── Injector.pdf                                                 # work sample: needle-free injector landscape
+    ├── Tech_Forecast.pdf                                            # work sample: technology forecast hypothesis
+    ├── Slime_Mold.pdf                                               # work sample: biomimetic forecasting hypothesis
+    └── Tech_Insights.pdf                                            # work sample: illustrative infographics
+```
+
+> **Asset naming:** filenames use underscores and no spaces so URLs stay clean and portable across static hosts. Every `assets/...` link in `index.html` matches a file above exactly (case-sensitive). If you rename a file, update its matching link in `index.html` (search for `assets/`).
+
+## ✅ Step 1 — Files are already in place
+
+All photos, the resume, the degree scan, and the PDF work samples are already in `assets/` with the exact names the site links to — nothing to rename. To swap any of them, drop in a replacement using the **same filename**, or update the matching `assets/...` link in `index.html`.
+
+> If `profile.jpg` is ever missing, the page shows an "MV" monogram automatically — it never looks broken.
+
+## ✅ Step 2 — Push to GitHub
+
+```bash
+cd manish-portfolio
+git init
+git add .
+git commit -m "Initial commit: personal portfolio"
+git branch -M main
+git remote add origin https://github.com/Manish-Verma-sys/portfolio.git   # create this repo on GitHub first
+git push -u origin main
+```
+
+## ✅ Step 3 — Deploy on Render (free static site)
+
+**Option A — Dashboard (simplest):**
+1. Go to <https://dashboard.render.com> → **New +** → **Static Site**.
+2. Connect your GitHub account and pick the `portfolio` repo.
+3. Settings:
+   - **Build Command:** *(leave empty)*
+   - **Publish Directory:** `.`
+4. Click **Create Static Site**. Render gives you a live URL like
+   `https://portfolio-xxxx.onrender.com` — share that link with anyone.
+
+**Option B — Blueprint (uses `render.yaml`):**
+1. **New +** → **Blueprint** → select the repo. Render reads `render.yaml` and configures everything automatically.
+
+Every `git push` to `main` auto-redeploys the site.
+
+## 🌐 Custom domain (optional)
+In the Render service → **Settings → Custom Domains**, add e.g. `manishverma.com` and follow the DNS instructions.
+
+## ✏️ Editing content
+Everything lives in `index.html`. Search for the section you want (e.g. `<!-- PATENTS -->`, `<!-- RESEARCH -->`, `<!-- WORK: PROJECT + SAMPLES -->`) and edit the text directly. Colors are CSS variables at the top of the `<style>` block (`--charcoal`, `--accent`, etc.).
